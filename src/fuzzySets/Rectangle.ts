@@ -5,8 +5,7 @@ export class Rectangle implements FuzzySet {
   private p2: number;
 
   constructor(p1: number, p2: number) {
-    if (p1 > p2)
-      throw new Error("Invalid arguments values.");
+    if (p1 > p2) throw new Error("Invalid arguments values.");
 
     this.p1 = p1;
     this.p2 = p2;
