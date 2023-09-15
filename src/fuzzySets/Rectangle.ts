@@ -6,7 +6,7 @@ export class Rectangle implements FuzzySet {
 
   constructor(p1: number, p2: number) {
     if (p1 > p2)
-      throw new Error("The first value should be lesser than the second one.");
+      throw new Error("Invalid arguments values.");
 
     this.p1 = p1;
     this.p2 = p2;

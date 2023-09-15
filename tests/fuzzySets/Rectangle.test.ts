@@ -9,7 +9,9 @@ describe("Rectangle", () => {
 
     expect(rectangle.getValue(p1 - 1)).toBe(0);
     expect(rectangle.getValue(p2 + 1)).toBe(0);
+
     expect(rectangle.getValue(p2 - 1)).toBe(1);
+    
     expect(rectangle.getValue(p1)).toBe(1);
     expect(rectangle.getValue(p2)).toBe(1);
   });
@@ -20,6 +22,6 @@ describe("Rectangle", () => {
 
     expect(() => {
       new Rectangle(p1, p2);
-    }).toThrow("The first value should be lesser than the second one.");
+    }).toThrow("Invalid arguments values.");
   });
 });
