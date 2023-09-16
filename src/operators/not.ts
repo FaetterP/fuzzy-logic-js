@@ -1,9 +1,11 @@
-import { FuzzySet } from "../types";
+import { FuzzySet } from "../fuzzySets/FuzzySet";
 
-export class NotSet implements FuzzySet {
+export class NotSet extends FuzzySet {
   private fuzzySet: FuzzySet;
 
   constructor(fuzzySet: FuzzySet) {
+    super();
+
     this.fuzzySet = fuzzySet;
   }
 

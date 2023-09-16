@@ -1,6 +1,6 @@
-import { FuzzySet } from "../types";
+import { FuzzySet } from "./FuzzySet";
 
-export class Triangle implements FuzzySet {
+export class Triangle extends FuzzySet {
   private p1: number;
   private p2: number;
   private p3: number;
@@ -10,6 +10,8 @@ export class Triangle implements FuzzySet {
   constructor(p1: number, p2: number, p3: number) {
     if (p1 > p2 || p2 > p3 || p1 > p3)
       throw new Error("Invalid arguments values.");
+
+    super();
 
     this.p1 = p1;
     this.p2 = p2;
