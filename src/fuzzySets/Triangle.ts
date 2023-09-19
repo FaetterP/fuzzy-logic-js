@@ -7,7 +7,7 @@ export class Triangle extends FuzzySet {
 
   private y: number;
 
-  constructor(p1: number, p2: number, p3: number) {
+  constructor(p1: number, p2: number, p3: number, y: number = 1) {
     if (p1 > p2 || p2 > p3 || p1 > p3)
       throw new Error("Invalid arguments values.");
 
@@ -17,7 +17,7 @@ export class Triangle extends FuzzySet {
     this.p2 = p2;
     this.p3 = p3;
 
-    this.y = 1;
+    this.y = y;
   }
 
   getValue(value: number): number {
