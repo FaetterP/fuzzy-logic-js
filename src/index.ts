@@ -1,6 +1,8 @@
 export * from "./fuzzySets/FuzzySet";
 export * from "./fuzzySets/Rectangle";
 export * from "./fuzzySets/Triangle";
+export * from "./fuzzySets/Sigmoid";
+export * from "./fuzzySets/Gaussian";
 
 export * from "./operators/and";
 export * from "./operators/or";
