@@ -64,7 +64,7 @@ export abstract class FuzzySet {
       left,
       right
     );
-    const denominator = Integral(this.getValue, left, right);
+    const denominator = Integral(this.getValue.bind(this), left, right);
 
     if (denominator === 0) {
       return 0;
