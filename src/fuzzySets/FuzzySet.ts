@@ -1,3 +1,5 @@
+import { Integral } from "../utils";
+
 export abstract class FuzzySet {
   public abstract getValue(value: number): number;
 
@@ -54,5 +56,20 @@ export abstract class FuzzySet {
     }
 
     return (xRight + xLeft) / 2;
+  }
+
+  public defuzzyCentroid(left: number, right: number): number {
+    const numerator = Integral(
+      (x: number) => x * this.getValue(x),
+      left,
+      right
+    );
+    const denominator = Integral(this.getValue, left, right);
+
+    if (denominator === 0) {
+      return 0;
+    }
+
+    return numerator / denominator;
   }
 }
