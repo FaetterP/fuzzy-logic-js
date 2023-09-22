@@ -12,3 +12,5 @@ export * from "./operators/very";
 export * from "./operators/slightly";
 
 export * from "./operators/slice";
+
+export * from "./operators/Relationship";

@@ -3,6 +3,8 @@
 /examples/
 /tsconfig.json
 /coverage/
+/babel.config.js
 /babel.config.json
 /tests/
 /.vscode/
+/README.md
