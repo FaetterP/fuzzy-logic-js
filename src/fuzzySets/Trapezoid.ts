@@ -37,4 +37,44 @@ export class Trapezoid extends FuzzySet {
       return slope * value + intercept;
     }
   }
+
+  public defuzzyMaxLeft(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
+    if (this.p2 >= left) {
+      return this.p2;
+    }
+
+    return super.defuzzyMaxLeft(left, right);
+  }
+
+  public defuzzyMaxRight(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
+    if (this.p3 <= right) {
+      return this.p3;
+    }
+
+    return super.defuzzyMaxRight(left, right);
+  }
+
+  public defuzzyMaxMiddle(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
+    if (this.p2 >= left && this.p3 <= right) {
+      return (this.p2 + this.p3) / 2;
+    }
+
+    return super.defuzzyMaxMiddle(left, right);
+  }
+
+  public defuzzyCentroid(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
+    if (this.p1 >= left && this.p4 <= right) {
+      return super.defuzzyCentroid(this.p1, this.p3);
+    }
+
+    return super.defuzzyCentroid(left, right);
+  }
 }

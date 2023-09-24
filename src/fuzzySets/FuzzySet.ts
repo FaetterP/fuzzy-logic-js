@@ -6,8 +6,10 @@ export abstract class FuzzySet {
   public step = 0.01;
 
   public defuzzyMaxLeft(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
     let y = 0;
-    let x = 0;
+    let x = left;
 
     for (let i = left; i < right; i += this.step) {
       const value = this.getValue(i);
@@ -21,8 +23,10 @@ export abstract class FuzzySet {
   }
 
   public defuzzyMaxRight(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
     let y = 0;
-    let x = 0;
+    let x = left;
 
     for (let i = left; i < right; i += this.step) {
       const value = this.getValue(i);
@@ -36,10 +40,12 @@ export abstract class FuzzySet {
   }
 
   public defuzzyMaxMiddle(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
     let yRight = 0;
-    let xRight = 0;
+    let xRight = left;
     let yLeft = 0;
-    let xLeft = 0;
+    let xLeft = left;
 
     for (let i = left; i < right; i += this.step) {
       const value = this.getValue(i);
@@ -59,6 +65,8 @@ export abstract class FuzzySet {
   }
 
   public defuzzyCentroid(left: number, right: number): number {
+    if (left > right) throw new Error("Invalid boundaries.");
+
     const numerator = Integral(
       (x: number) => x * this.getValue(x),
       left,
@@ -67,7 +75,7 @@ export abstract class FuzzySet {
     const denominator = Integral(this.getValue.bind(this), left, right);
 
     if (denominator === 0) {
-      return 0;
+      return (left + right) / 2;
     }
 
     return numerator / denominator;

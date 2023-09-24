@@ -6,7 +6,7 @@ export class Rectangle extends FuzzySet {
   private y: number;
 
   constructor(p1: number, p2: number, y: number = 1) {
-    if (p1 > p2) throw new Error("Invalid arguments values.");
+    if (p1 >= p2) throw new Error("Invalid arguments values.");
 
     super();
 
